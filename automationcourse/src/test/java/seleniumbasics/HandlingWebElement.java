@@ -16,6 +16,8 @@ public class HandlingWebElement  extends Base
 		messageBox.sendKeys("Sample Text Message");
 		//WebElement for the show meassage button
 		WebElement showmessageButton =driver.findElement(By.xpath("//button[@id='button-one']"));
+		System.out.println(showmessageButton.isDisplayed());
+		System.out.println(showmessageButton.isEnabled());
 		//click()
 		showmessageButton.click();
 		//WebElement for the your message field
