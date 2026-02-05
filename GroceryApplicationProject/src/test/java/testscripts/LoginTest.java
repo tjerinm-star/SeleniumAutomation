@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends BaseTest
 {
-	@Test
+	@Test(description="Validating user login with valid credentials")
     public void verifyUserLoginWithValidUsernameAndValidPassword() throws IOException
     {
     	String username=ExcelUtility.getStringData(0, 0,"LoginSheet");
