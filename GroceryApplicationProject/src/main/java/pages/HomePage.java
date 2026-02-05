@@ -19,6 +19,7 @@ public class HomePage
 	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']")WebElement admin_logout_icon;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/logout']")WebElement logout_button;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement more_info_manage_news;
+	@FindBy(xpath="//a[contains(text(),'More info')]")WebElement more_info_admin_users;
 	
 	
 	public void clickOnAdminLogoutIcon()
@@ -33,6 +34,10 @@ public class HomePage
 	public void clickOnManageNewsMoreInfo()
 	{
 		more_info_manage_news.click();
+	}
+	public void clickOnAdminUsersMoreInfo()
+	{
+		more_info_admin_users.click();
 	}
 	
 	

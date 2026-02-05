@@ -3,13 +3,14 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testscripts.ManageNewsTest">
+      <class name="testscripts.AdminUsersTest">
         <methods>
-          <include name="verifyUserIsAbleToAddNewNews"/>
-          <include name="browserCloseQuit"/>
+          <include name="verifyuserIsAbleToRefreshUsernames"/>
+          <include name="verifyUserIsAbleToAddNewUsernamePasswordAndSelectType"/>
+          <include name="verifyUserIsAbleToSearchUsernames"/>
           <include name="InitializeBrowser"/>
         </methods>
-      </class> <!-- testscripts.ManageNewsTest -->
+      </class> <!-- testscripts.AdminUsersTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
