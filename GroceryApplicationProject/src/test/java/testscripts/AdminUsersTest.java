@@ -7,6 +7,7 @@ import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.FakerUtility;
 
 public class AdminUsersTest extends BaseTest
 {
@@ -29,10 +30,17 @@ public class AdminUsersTest extends BaseTest
 	    
 	    AdminUsersPage adminuserspage=new AdminUsersPage(driver);
 	    adminuserspage.creatingNewAdminUser();
+	    FakerUtility faker = new FakerUtility();
+	    String newUsername =faker.createRandomUsernmae();
+	    String newPassword= faker.createRandomPassword();
+	    		
+	    adminuserspage.enterUsernmaeOnUsernameFiel(newUsername);
+	    adminuserspage.enterPasswordOnPasswordField(newPassword);
+	    adminuserspage.selectUsertypeOnUsertypeDropdown();
+	    adminuserspage.clickOnSaveButton();
 	    
-	    
-	    
-	}
+	 }
+	
 	@Test(description="Verify that the admin user is able to search usernames using search filters")
 	
 	public void verifyUserIsAbleToSearchUsernames() throws IOException
@@ -50,8 +58,12 @@ public class AdminUsersTest extends BaseTest
 	    
 	    AdminUsersPage adminuserspage=new AdminUsersPage(driver);
 	    adminuserspage.searchingNewlyAddUsernameAndUserType();
+	    adminuserspage.enterSearchUsernameOnUsernameField();
+	    adminuserspage.selectUsertypeOnSearchUsertypeDropdown();
+	    adminuserspage.clickOnSearchButton();
 		
 	}
+	
 	@Test(description="Verify that the admin user is able to refresh or reset the username search results")
 	
 	public void  verifyUserIsAbleToRefreshUsernames() throws IOException

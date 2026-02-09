@@ -29,6 +29,8 @@ public class ManageNewsTest extends BaseTest
 	    
 	    ManageNewsPage managenews = new ManageNewsPage(driver);
 	    managenews.creatingNewNews();
+	    managenews.enterTheNewNewsField();
+	    managenews.clickOnNewsSaveButton();
 	  
 	        
 	}
@@ -49,6 +51,8 @@ public class ManageNewsTest extends BaseTest
 	    
 	    ManageNewsPage managenews = new ManageNewsPage(driver);
 	    managenews.searchingTheNewlyAddedNews();
+	    managenews.enterSearchingNewsTitleField();
+	    managenews.clickOnSearchButton();
 	}
 	
 	@Test(description="Verify that user can refresh or reset the news list")

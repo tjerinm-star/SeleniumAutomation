@@ -21,36 +21,60 @@ public class AdminUsersPage
 	@FindBy(id="password")WebElement add_new_password;
 	@FindBy(id="user_type")WebElement select_usertype;
 	@FindBy(name="Create")WebElement click_save_button;
-	
 	@FindBy(xpath="//a[contains(text(),'Search')]")WebElement search_admin_users;
 	@FindBy(id="un")WebElement search_username_feild;
 	@FindBy(id="ut")WebElement search_usertype;
 	@FindBy(xpath="//button[@name='Search']")WebElement click_search_button;
-	
 	@FindBy(xpath="//a[text()=' Reset']")WebElement click_reset_button;
 	
 	
 	public void creatingNewAdminUser()
 	{
 		 add_new_user.click();
-		 add_new_username.sendKeys("secret1");
-		 add_new_password.sendKeys("secret2");
-		 Select select = new Select(select_usertype);
-		 select.selectByValue("admin");
-		
-		 click_save_button.click();
-		 
 	}
 	
+	public void enterUsernmaeOnUsernameFiel(String newUsername ) 
+	{
+		add_new_username.sendKeys(newUsername);
+		
+	}
+	public void enterPasswordOnPasswordField(String newPassword)
+	{
+		add_new_password.sendKeys(newPassword);
+	}
+	
+	public void selectUsertypeOnUsertypeDropdown()
+	{
+		 Select select = new Select(select_usertype);
+		 select.selectByValue("admin");
+	}
+
+	public void clickOnSaveButton()
+	{
+		click_save_button.click();
+	}
+
+		 
 	public void searchingNewlyAddUsernameAndUserType()
 	{
-		
 		search_admin_users.click();
+		
+	}
+	public void enterSearchUsernameOnUsernameField()
+	{
 		search_username_feild.sendKeys("secret1");
+	}
+	public void selectUsertypeOnSearchUsertypeDropdown()
+	{
+		
 		Select select = new Select(search_usertype);
 		select.selectByValue("admin");
+	}
+	public void clickOnSearchButton()
+	{
 		click_search_button.click();
 	}
+	
 	
 	public void resettingTheUsernmaes()
 	{
