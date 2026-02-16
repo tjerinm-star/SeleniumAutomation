@@ -1,51 +1,60 @@
 package automationcore;
 
+import java.io.FileInputStream;
 import java.io.IOException;
-
-//import java.io.IOException;
-//import java.time.Duration;
+import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-//import org.testng.ITestResult;
-//import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
+import constant.Constant;
 import utilities.ScreenshotUtility;
 
-//import utilities.ScreenshotUtility;
+public class BaseTest {
 
-public class BaseTest
-{
-	
 	public WebDriver driver;
-	
-	@BeforeMethod
-	
-	public void InitializeBrowser()
-	{
-		driver=new ChromeDriver();
-		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+	Properties prop;
+	FileInputStream f;
+
+	@BeforeMethod(alwaysRun = true)
+	@Parameters("browser")
+	public void initialiseDriver(String browser) throws Exception {
+		prop = new Properties();
+		f = new FileInputStream(Constant.CONFIG_FILE);
+		prop.load(f);
+		if (browser.equalsIgnoreCase("chrome")) {
+			driver = new ChromeDriver();
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
+		} else if (browser.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
+		} else {
+			throw new Exception("Invalid Browser");
+		}
+
+		driver.navigate().to(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));// implicit Wait
-		
-	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // implicit wait
 	}
 
-	@AfterMethod
-	public void driverQuit(ITestResult iTestResult) throws IOException { 
-		  
- 		if (iTestResult.getStatus() == ITestResult.FAILURE) { 
-  
- 			ScreenshotUtility screenShot = new ScreenshotUtility(); 
- 			screenShot.getScreenshot(driver, iTestResult.getName()); 
- 		} 
- 		//driver.quit(); 
-  
- 	}
-	
-	
+	@AfterMethod(alwaysRun = true)
+	public void driverQuit(ITestResult iTestResult) throws IOException {
 
+		if (iTestResult.getStatus() == ITestResult.FAILURE) { // check if the test case is failed.
+
+			ScreenshotUtility screenShot = new ScreenshotUtility();
+			screenShot.getScreenshot(driver, iTestResult.getName());
+
+		}
+		// driver.quit();
+
+	}
 }
