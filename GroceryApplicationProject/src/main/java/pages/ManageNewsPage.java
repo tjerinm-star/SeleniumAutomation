@@ -33,33 +33,40 @@ public class ManageNewsPage {
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]")
 	WebElement serchResultNewNews;
 
-	public void creatingNewNews() {
+	public ManageNewsPage creatingNewNews() {
 		add_new_news.click();
+		return this;
 	}
 
-	public void enterTheNewNewsField() {
+	public ManageNewsPage enterTheNewNewsField() {
 		news_field.sendKeys("Rainy Day");
+		return this;
 	}
 
-	public void clickOnNewsSaveButton() {
+	public ManageNewsPage clickOnNewsSaveButton() {
 		news_save_button.click();
+		return this;
 	}
 
-	public void searchingTheNewlyAddedNews() {
+	public ManageNewsPage searchingTheNewlyAddedNews() {
 		search_newly_added_news.click();
+		return this;
 	}
 
-	public void enterSearchingNewsTitleField() {
+	public ManageNewsPage enterSearchingNewsTitleField() {
 		search_manage_field.sendKeys("Rainy Day");
+		return this;
 
 	}
 
-	public void clickOnSearchButton() {
+	public ManageNewsPage clickOnSearchButton() {
 		news_search_button.click();
+		return this;
 	}
 
-	public void resettingTheNews() {
+	public ManageNewsPage resettingTheNews() {
 		reset_news.click();
+		return this;
 
 	}
 

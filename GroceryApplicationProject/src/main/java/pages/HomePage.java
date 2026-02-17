@@ -25,20 +25,24 @@ public class HomePage {
 	@FindBy(xpath = "//a[text()='Home']")
 	WebElement homeText;
 
-	public void clickOnAdminLogoutIcon() {
+	public HomePage clickOnAdminLogoutIcon() {
 		admin_logout_icon.click();
+		return this;
 	}
 
-	public void clickOnLogoutButton() {
+	public LoginPage clickOnLogoutButton() {
 		logout_button.click();
+		return new LoginPage(driver);
 	}
 
-	public void clickOnManageNewsMoreInfo() {
+	public ManageNewsPage clickOnManageNewsMoreInfo() {
 		more_info_manage_news.click();
+		return new ManageNewsPage(driver);
 	}
 
-	public void clickOnAdminUsersMoreInfo() {
+	public AdminUsersPage clickOnAdminUsersMoreInfo() {
 		more_info_admin_users.click();
+		return new AdminUsersPage(driver);
 	}
 
 	public boolean getHomeTextDisplay() {

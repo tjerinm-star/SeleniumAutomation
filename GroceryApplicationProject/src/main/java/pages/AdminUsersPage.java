@@ -45,21 +45,25 @@ public class AdminUsersPage {
 	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]")
 	WebElement userSearchResult;
 
-	public void creatingNewAdminUser() {
+	public AdminUsersPage creatingNewAdminUser() {
 		add_new_user.click();
+		return this;
 	}
 
-	public void enterUsernmaeOnUsernameFiel(String newUsername) {
+	public AdminUsersPage enterUsernameOnAdminUsernameField(String newUsername) {
 		add_new_username.sendKeys(newUsername);
+		return this;
 
 	}
 
-	public void enterPasswordOnPasswordField(String newPassword) {
+	public AdminUsersPage enterPasswordOnAdminPasswordField(String newPassword) {
 		add_new_password.sendKeys(newPassword);
+		return this;
 	}
 
-	public void selectUsertypeOnUsertypeDropdown() {
+	public AdminUsersPage selectUsertypeOnUsertypeDropdown() {
 		page.selectDropDownWithIndex(select_usertype, 1);
+		return this;
 		// Select select = new Select(select_usertype);
 		// select.selectByValue("admin");
 	}
@@ -69,28 +73,33 @@ public class AdminUsersPage {
 		click_save_button.click();
 	}
 
-	public void searchingNewlyAddUsernameAndUserType() {
+	public AdminUsersPage searchingNewlyAddUsernameAndUserType() {
 		search_admin_users.click();
+		return this;
 
 	}
 
-	public void enterSearchUsernameOnUsernameField() {
+	public AdminUsersPage enterSearchUsernameOnUsernameField() {
 		search_username_feild.sendKeys("secret1");
+		return this;
 	}
 
-	public void selectUsertypeOnSearchUsertypeDropdown() {
+	public AdminUsersPage selectUsertypeOnSearchUsertypeDropdown() {
 		page.selectDropDownWithIndex(search_usertype, 1);
+		return this;
 
 		// Select select = new Select(search_usertype);
 		// select.selectByValue("admin");
 	}
 
-	public void clickOnSearchButton() {
+	public AdminUsersPage clickOnSearchButton() {
 		click_search_button.click();
+		return this;
 	}
 
-	public void resettingTheUsernmaes() {
+	public AdminUsersPage resettingTheUsernmaes() {
 		click_reset_button.click();
+		return this;
 	}
 
 	public boolean isUserCreatedSuccessfully() {

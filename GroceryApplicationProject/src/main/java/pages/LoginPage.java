@@ -28,17 +28,20 @@ public class LoginPage {
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	WebElement alertMessage;
 
-	public void enterUsernameOnUsernameField(String username) {
+	public LoginPage enterUsernameOnUsernameField(String username) {
 		usernameButton.sendKeys(username);
+		return this;
 
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		passwordButton.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnSigninButton() {
+	public HomePage clickOnSigninButton() {
 		signinButton.click();
+		return new HomePage(driver);
 	}
 
 	public boolean dashboardDisplay() {
