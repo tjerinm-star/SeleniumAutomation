@@ -9,7 +9,6 @@
     <classes>
       <class name="testscripts.AdminUsersTest">
         <methods>
-          <include name="verifyUserIsAbleToRefreshUsernames"/>
           <include name="driverQuit"/>
           <include name="initialiseDriver"/>
           <include name="verifyUserIsAbleToSearchUsernames"/>

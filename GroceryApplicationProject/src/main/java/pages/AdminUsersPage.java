@@ -79,8 +79,8 @@ public class AdminUsersPage {
 
 	}
 
-	public AdminUsersPage enterSearchUsernameOnUsernameField() {
-		search_username_feild.sendKeys("secret1");
+	public AdminUsersPage enterSearchUsernameOnUsernameField(String searchUsename) {
+		search_username_feild.sendKeys(searchUsename);
 		return this;
 	}
 

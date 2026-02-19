@@ -38,8 +38,8 @@ public class ManageNewsPage {
 		return this;
 	}
 
-	public ManageNewsPage enterTheNewNewsField() {
-		news_field.sendKeys("Rainy Day");
+	public ManageNewsPage enterTheNewNewsField(String newNews) {
+		news_field.sendKeys(newNews);
 		return this;
 	}
 
@@ -53,8 +53,8 @@ public class ManageNewsPage {
 		return this;
 	}
 
-	public ManageNewsPage enterSearchingNewsTitleField() {
-		search_manage_field.sendKeys("Rainy Day");
+	public ManageNewsPage enterSearchingNewsTitleField(String searchNews) {
+		search_manage_field.sendKeys(searchNews);
 		return this;
 
 	}

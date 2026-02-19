@@ -44,11 +44,12 @@ public class AdminUsersTest extends BaseTest {
 	public void verifyUserIsAbleToSearchUsernames() throws IOException {
 		String username = ExcelUtility.getStringData(0, 0, "LoginSheet");
 		String password = ExcelUtility.getStringData(0, 1, "LoginSheet");
+		String searchUsename=ExcelUtility.getStringData(0, 0, "AdminUserSheet");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password);
 		home = loginpage.clickOnSigninButton();
 		adminuserspage = home.clickOnAdminUsersMoreInfo();
-		adminuserspage.searchingNewlyAddUsernameAndUserType().enterSearchUsernameOnUsernameField()
+		adminuserspage.searchingNewlyAddUsernameAndUserType().enterSearchUsernameOnUsernameField(searchUsename)
 				.selectUsertypeOnSearchUsertypeDropdown().clickOnSearchButton();
 		boolean isSearchResultDisplayed = adminuserspage.isSearchResultDisplayed();
 		Assert.assertTrue(isSearchResultDisplayed, Constant.SEARCH_FAILED_MESSAGE);
